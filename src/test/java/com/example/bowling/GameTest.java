@@ -71,4 +71,18 @@ public class GameTest {
         assertThat(result).isEqualTo(16);
     }
 
+    @Test
+    @DisplayName("Verify score after Strike")
+    void verifyScoreAfterStrike(){
+        Game game = new Game();
+
+        game.roll(10);
+        game.roll(4);
+        game.roll(3);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(24);
+    }
+
 }
