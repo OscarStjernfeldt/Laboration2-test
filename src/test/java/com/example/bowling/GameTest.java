@@ -57,4 +57,18 @@ public class GameTest {
         assertThat(result).isEqualTo(24);
     }
 
+    @Test
+    @DisplayName("Verify score after three rolls")
+    void verifyScoreAfterThreeRolls(){
+        Game game = new Game();
+
+        game.roll(3);
+        game.roll(6);
+        game.roll(7);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(16);
+    }
+
 }
