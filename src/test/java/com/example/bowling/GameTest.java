@@ -30,4 +30,17 @@ public class GameTest {
         assertThat(result).isEqualTo(7);
     }
 
+    @Test
+    @DisplayName("Verify numbers of pins after two rolls")
+    void verifyNumbersOfPinsOnTwoRolls(){
+        Game game = new Game();
+
+        game.roll(7);
+        game.roll(2);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(9);
+    }
+
 }
