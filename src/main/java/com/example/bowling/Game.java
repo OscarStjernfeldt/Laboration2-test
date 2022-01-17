@@ -4,7 +4,11 @@ public class Game {
 
     private boolean lastFrameWasStrike = false;
 
+    private boolean lastFrameWasSpare = false;
+
     private int strikeBonus = 0;
+
+    private int spareBonus = 0;
 
     private int frameScore = 0;
 
@@ -18,25 +22,29 @@ public class Game {
 
     public void roll(int pins) {
 
-        if(lastFrameWasStrike){
+        if (lastFrameWasStrike) {
             strikeBonus += pins;
             score += strikeBonus;
             lastFrameWasStrike = false;
+            strikeBonus = 0;
         }
 
         if (rolls == 1 && frameScore == 10) {
             strikeBonus += pins;
             lastFrameWasStrike = true;
+            rolls = 0;
+            frameScore = 0;
         }
 
-        if (rolls == 2) {
-            if (frameScore == 10) {
-                score += pins;
-            }
+        if (rolls == 2 && frameScore == 10) {
+            spareBonus += pins;
+            rolls = 0;
+            score += spareBonus;
         }
 
         frameScore += pins;
         score += pins;
         rolls++;
+
     }
 }
