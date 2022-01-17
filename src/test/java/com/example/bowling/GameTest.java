@@ -185,5 +185,33 @@ public class GameTest {
 
         var result = game.score();
 
-        assertThat(result).isEqualTo(121);    }
+        assertThat(result).isEqualTo(121);
+    }
+
+    @Test
+    @DisplayName("Verify score after one game of bowling")
+    void bowlingGameScore() {
+        Game game = new Game();
+
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(7);
+        game.roll(3);
+        game.roll(10);
+        game.roll(5);
+        game.roll(2);
+        game.roll(10);
+        game.roll(2);
+        game.roll(5);
+        game.roll(9);
+        game.roll(1);
+        game.roll(4);
+        game.roll(6);
+        game.roll(6);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(175);
+    }
 }
