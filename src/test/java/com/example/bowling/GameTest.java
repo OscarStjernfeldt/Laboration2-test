@@ -152,4 +152,20 @@ public class GameTest {
         assertThat(result).isEqualTo(55);
 
     }
+
+    @Test
+    @DisplayName("Verify score after 1 strike and 1 spare")
+    void verifyScoreAfterOneStrikeAndOneSpare() {
+        Game game = new Game();
+
+        game.roll(10);
+        game.roll(7);
+        game.roll(3);
+        game.roll(5);
+        game.roll(1);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(41);
+    }
 }
