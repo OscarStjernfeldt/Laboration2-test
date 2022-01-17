@@ -168,4 +168,22 @@ public class GameTest {
 
         assertThat(result).isEqualTo(41);
     }
+
+    @Test
+    @DisplayName("Verify score after 3 strike, 1 spare and 1 strike again")
+    void ThreeStrikeOneSpareOneStrike() {
+        Game game = new Game();
+
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(7);
+        game.roll(3);
+        game.roll(10);
+        game.roll(5);
+        game.roll(2);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(121);    }
 }
