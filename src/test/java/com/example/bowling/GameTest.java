@@ -116,4 +116,21 @@ public class GameTest {
         assertThat(result).isEqualTo(75);
     }
 
+    @Test
+    @DisplayName("Verify score after 2 spares")
+    void verifyScoreAfterTwoSpares() {
+        Game game = new Game();
+
+        game.roll(4);
+        game.roll(6);
+        game.roll(7);
+        game.roll(3);
+        game.roll(5);
+        game.roll(3);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(40);
+    }
+
 }

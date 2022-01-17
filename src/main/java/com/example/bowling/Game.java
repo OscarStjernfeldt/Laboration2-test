@@ -40,6 +40,8 @@ public class Game {
             spareBonus += pins;
             rolls = 0;
             score += spareBonus;
+            frameScore = 0;
+            spareBonus = 0;
         }
 
         frameScore += pins;
