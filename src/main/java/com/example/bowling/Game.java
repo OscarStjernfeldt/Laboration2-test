@@ -4,8 +4,6 @@ public class Game {
 
     private boolean lastFrameWasStrike = false;
 
-    private boolean lastFrameWasSpare = false;
-
     private int strikeBonus = 0;
 
     private int spareBonus = 0;
@@ -47,6 +45,5 @@ public class Game {
         frameScore += pins;
         score += pins;
         rolls++;
-
     }
 }

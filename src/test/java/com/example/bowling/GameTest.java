@@ -132,5 +132,4 @@ public class GameTest {
 
         assertThat(result).isEqualTo(40);
     }
-
 }
