@@ -100,4 +100,20 @@ public class GameTest {
         assertThat(result).isEqualTo(45);
     }
 
+    @Test
+    @DisplayName("Verify score after 3 strikes")
+    void verifyScoreAfterThreeStrikes() {
+        Game game = new Game();
+
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(5);
+        game.roll(0);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(75);
+    }
+
 }
