@@ -28,4 +28,16 @@ class EmployeeTest {
 
         assertThat(result).isEqualTo(100);
     }
+
+    @Test
+    @DisplayName("setId should return new id")
+    void setIdShouldReturnNewId() {
+
+        Employee employee = new Employee("Omar", 100);
+
+        employee.setId("Oscar");
+        var result = employee.getId();
+
+        assertThat(result).isEqualTo("Oscar");
+    }
 }
