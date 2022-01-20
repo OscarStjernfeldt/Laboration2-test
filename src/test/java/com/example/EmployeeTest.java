@@ -63,4 +63,16 @@ class EmployeeTest {
 
         assertThat(result).isEqualTo(false);
     }
+
+    @Test
+    @DisplayName("setPaid should return new payment status true after default")
+    void setPaidShouldReturnTrue() {
+
+        Employee employee = new Employee("Omar", 100);
+
+        employee.setPaid(true);
+        var result = employee.isPaid();
+
+        assertThat(result).isEqualTo(true);
+    }
 }
