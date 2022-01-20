@@ -75,4 +75,15 @@ class EmployeeTest {
 
         assertThat(result).isEqualTo(true);
     }
+
+    @Test
+    @DisplayName("toString method should return employee id and salary")
+    void toStringShouldReturnIdAndSalary() {
+
+        Employee employee = new Employee("Omar", 100);
+
+        var result = employee.toString();
+
+        assertThat(result).isEqualTo("Employee [id=Omar, salary=100.0]");
+    }
 }
