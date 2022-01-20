@@ -40,4 +40,16 @@ class EmployeeTest {
 
         assertThat(result).isEqualTo("Oscar");
     }
+
+    @Test
+    @DisplayName("setSalary should return new salary")
+    void setSalaryShouldReturnNewSalary() {
+
+        Employee employee = new Employee("Omar", 100);
+
+        employee.setSalary(1000);
+        var result = employee.getSalary();
+
+        assertThat(result).isEqualTo(1000);
+    }
 }
