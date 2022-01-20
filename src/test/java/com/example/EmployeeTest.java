@@ -52,4 +52,15 @@ class EmployeeTest {
 
         assertThat(result).isEqualTo(1000);
     }
+
+    @Test
+    @DisplayName("isPaid should return false by default")
+    void isPaidShouldReturnFalseByDefault() {
+
+        Employee employee = new Employee("Omar", 100);
+
+        var result =  employee.isPaid();
+
+        assertThat(result).isEqualTo(false);
+    }
 }
