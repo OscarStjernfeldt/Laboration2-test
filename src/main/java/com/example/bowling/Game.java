@@ -58,6 +58,7 @@ public class Game {
 
     private boolean tenthFrame(int pins) {
         if (frameCounter == 9) {
+            ifLastGameWasStrike(pins);
             frameScore += pins;
             score += pins;
             rolls++;
