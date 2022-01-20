@@ -22,28 +22,30 @@ public class Game {
 
     public void roll(int pins) {
 
-        if(frameCounter == 9) {
-            frameScore += pins;
-            score += pins;
-            rolls++;
-            return;
-        }
+        if (tenthFrame(pins)) return;
+        ifLastGameWasStrike(pins);
+        scoreStrike(pins);
+        scoreSpare(pins);
+        resetFrameScore();
+        addToScore(pins);
 
-        if (lastFrameWasStrike) {
-            strikeBonus += pins;
-            score += strikeBonus;
-            lastFrameWasStrike = false;
-            strikeBonus = 0;
-        }
+    }
 
-        if (rolls == 1 && frameScore == 10) {
-            strikeBonus += pins;
-            lastFrameWasStrike = true;
+    private void addToScore(int pins) {
+        frameScore += pins;
+        score += pins;
+        rolls++;
+    }
+
+    private void resetFrameScore() {
+        if (rolls == 2) {
             rolls = 0;
             frameScore = 0;
             frameCounter++;
         }
+    }
 
+    private void scoreSpare(int pins) {
         if (rolls == 2 && frameScore == 10) {
             spareBonus += pins;
             rolls = 0;
@@ -52,15 +54,34 @@ public class Game {
             spareBonus = 0;
             frameCounter++;
         }
+    }
 
-        if (rolls == 2) {
+    private boolean tenthFrame(int pins) {
+        if (frameCounter == 9) {
+            frameScore += pins;
+            score += pins;
+            rolls++;
+            return true;
+        }
+        return false;
+    }
+
+    private void scoreStrike(int pins) {
+        if (rolls == 1 && frameScore == 10) {
+            strikeBonus += pins;
+            lastFrameWasStrike = true;
             rolls = 0;
             frameScore = 0;
             frameCounter++;
         }
+    }
 
-        frameScore += pins;
-        score += pins;
-        rolls++;
+    private void ifLastGameWasStrike(int pins) {
+        if (lastFrameWasStrike) {
+            strikeBonus += pins;
+            score += strikeBonus;
+            lastFrameWasStrike = false;
+            strikeBonus = 0;
+        }
     }
 }

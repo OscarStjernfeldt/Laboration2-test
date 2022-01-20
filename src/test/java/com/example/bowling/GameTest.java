@@ -10,7 +10,7 @@ public class GameTest {
 
     @Test
     @DisplayName("Score should return current score")
-    void rollShouldAddToScore(){
+    void rollShouldAddToScore() {
         Game game = new Game();
 
         var result = game.score();
@@ -20,7 +20,7 @@ public class GameTest {
 
     @Test
     @DisplayName("Verify numbers of pins after first roll")
-    void verifyNumbersOfPinsOnFirstRoll(){
+    void verifyNumbersOfPinsOnFirstRoll() {
         Game game = new Game();
 
         game.roll(7);
@@ -32,7 +32,7 @@ public class GameTest {
 
     @Test
     @DisplayName("Verify numbers of pins after two rolls")
-    void verifyNumbersOfPinsOnTwoRolls(){
+    void verifyNumbersOfPinsOnTwoRolls() {
         Game game = new Game();
 
         game.roll(7);
@@ -45,7 +45,7 @@ public class GameTest {
 
     @Test
     @DisplayName("Verify score after spare")
-    void verifyScoreAfterSpare(){
+    void verifyScoreAfterSpare() {
         Game game = new Game();
 
         game.roll(4);
@@ -59,7 +59,7 @@ public class GameTest {
 
     @Test
     @DisplayName("Verify score after three rolls")
-    void verifyScoreAfterThreeRolls(){
+    void verifyScoreAfterThreeRolls() {
         Game game = new Game();
 
         game.roll(3);
@@ -73,7 +73,7 @@ public class GameTest {
 
     @Test
     @DisplayName("Verify score after Strike")
-    void verifyScoreAfterStrike(){
+    void verifyScoreAfterStrike() {
         Game game = new Game();
 
         game.roll(10);
