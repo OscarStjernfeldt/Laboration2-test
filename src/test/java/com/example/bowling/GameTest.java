@@ -214,4 +214,28 @@ public class GameTest {
 
         assertThat(result).isEqualTo(175);
     }
+
+
+    @Test
+    @DisplayName("Verify score after game with only strikes")
+    void bowlingGameWithOnlyStrikes() {
+        Game game = new Game();
+
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+
+        var result = game.score();
+
+        assertThat(result).isEqualTo(300);
+    }
 }
