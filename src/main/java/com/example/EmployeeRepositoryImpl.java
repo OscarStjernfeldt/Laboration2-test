@@ -14,6 +14,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Employee save(Employee e) {
-        return null;
+        employeeList.add(e);
+        return e;
     }
 }
