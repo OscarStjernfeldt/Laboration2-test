@@ -14,6 +14,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Employee save(Employee e) {
+        employeeList.stream()
+                .filter(employee -> employee.getId().equals(e.getId()))
+                .findFirst()
+                .ifPresent(this::removeExistingID);
         employeeList.add(e);
         return e;
     }
@@ -24,5 +28,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     public EmployeeRepositoryImpl() {
         this.employeeList = new ArrayList<>();
+    }
+
+    private void removeExistingID(Employee employee) {
+        employeeList.remove(employee);
     }
 }

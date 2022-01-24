@@ -42,4 +42,18 @@ class EmployeeRepositoryImplTest {
 
         assertThat(result).contains(employee);
     }
+
+    @Test
+    @DisplayName("When employee with existing id is added should the old one be replaced")
+    void replaceOldIDWithNewID() {
+        Employee employee = new Employee("Omar", 100);
+        Employee employee2 = new Employee("Omar", 1000);
+        EmployeeRepository employeeRepository = new EmployeeRepositoryImpl(List.of());
+        employeeRepository.save(employee);
+        employeeRepository.save(employee2);
+
+        var result = employeeRepository.findAll();
+
+        assertThat(result).containsOnly(employee2);
+    }
 }
