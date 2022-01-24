@@ -31,4 +31,15 @@ class EmployeeRepositoryImplTest {
 
         assertThat(result).contains(employee);
     }
+
+    @Test
+    @DisplayName("Add employees to list with constructor")
+    void addToListWithConstructor() {
+        Employee employee = new Employee("Omar", 100);
+        EmployeeRepository employeeRepository = new EmployeeRepositoryImpl(List.of(employee));
+
+        var result = employeeRepository.findAll();
+
+        assertThat(result).contains(employee);
+    }
 }
