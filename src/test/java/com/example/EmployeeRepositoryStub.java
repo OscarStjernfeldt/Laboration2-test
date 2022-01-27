@@ -9,7 +9,7 @@ public class EmployeeRepositoryStub implements EmployeeRepository{
     public List<Employee> findAll() {
         List<Employee> employeeList = new ArrayList<>();
         employeeList.add(new Employee("Omar", 1000));
-        employeeList.add(null);
+        employeeList.add(new Employee("test2", 8));
         return employeeList;
     }
 
