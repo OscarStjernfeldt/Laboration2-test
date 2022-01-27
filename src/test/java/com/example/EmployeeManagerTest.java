@@ -38,6 +38,7 @@ class EmployeeManagerTest {
         var result1 = employeeRepository.findAll();
 
         assertThat(result).isEqualTo(1);
-        assertThat(result1).hasSize(2);
+        assertThat(result1.get(0).isPaid()).isTrue();
+        assertThat(result1.get(1).isPaid()).isFalse();
     }
 }
